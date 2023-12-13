@@ -1,0 +1,301 @@
+/*====================================
+Website Name: RTMS | Laguna State Polytechnic University
+Developed By: Mark Nicholas Razon
+
+Table of contents:
+	- Fonts
+	- General
+	- Validation
+	- Login & Register
+	- Landing Page
+====================================*/
+
+/*=================
+      Fonts
+=================*/
+@font-face {
+  	font-family: signika;
+  	src: url(../fonts/Signika-Regular.ttf);
+}
+
+/*=================
+     General
+=================*/
+
+:root{
+	--theme: #2D6179;
+	--semi: #3F9BB0;
+	--primary: #2BB9C5;
+	--white: #FFFFFF;
+	--danger: #DC3545;
+	--success: #4BB543;
+	--danger-fade: #FFCCD1;
+	--success-fade: #C5F2C2;
+}
+*{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: signika;
+}
+
+/*=================
+  	Validation
+=================*/
+@keyframes popUp {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+        visibility: hidden;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 1;
+        visibility: visible;
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+.error-handle{
+	background-color: var(--danger-fade);
+	border: 2px solid var(--danger);
+	animation: popUp .5s forwards;
+}
+.success-handle{
+	background-color: var(--success-fade);
+	border: 2px solid var(--success);
+	animation: popUp .5s forwards;
+}
+#validation{
+	position: absolute;
+	top: 50px;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+.validation-handler{
+	width: 500px;
+	padding: 12px;
+	border-radius: 8px;
+	display: flex;
+	align-items: center;
+}
+.validation-handler img{
+	height: 30px;
+}
+.validation-handler span.danger{
+	margin-left: 12px;
+	color: var(--danger);
+}
+.validation-handler span.success{
+	margin-left: 12px;
+	color: var(--success);
+}
+
+/*=================
+  		Login
+=================*/
+.log-page-bg {
+  	height: 100vh;
+  	background-image: linear-gradient(180deg, #2D6179, #2D6179), url(../img/banner.jpg);
+  	background-blend-mode: multiply;
+  	background-size: cover;
+  	display: grid;
+  	place-items: center;
+}
+.log-page-bg form{
+	width: 350px;
+	padding: 20px;
+	border-radius: 12px;
+	background-color: var(--white);
+}
+.log-page-bg form img{
+	height: 100px;
+	display: block;
+	margin: auto;
+}
+.log-page-bg form label input{
+	width: 100%;
+	padding: 12px;
+	border-radius: 7px;
+	outline: none;
+	border: 1px solid rgba(0,0,0,0.2);
+	margin: 0 0 18px 0;
+	transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+.log-page-bg form label input:focus {
+    color: var(--theme);
+    border-color: var(--theme);
+    outline: 0;
+    box-shadow: 0 0 0 .2rem rgba(45, 97, 121, .25);
+}
+.log-page-bg form button{
+	width: 100%;
+	padding: 12px;
+	border-radius: 7px;
+	cursor: pointer;
+	border: none;
+	margin: 0 0 7px 0;
+	font-size: 1em;
+	color: var(--white);
+	background-color: var(--theme);
+	box-shadow: inset 0 0 0 0 var(--semi);
+	outline: none;
+	transition: .5s;
+}
+.log-page-bg form button:hover{
+	box-shadow: inset 0 0 0 100px var(--semi);
+	transition: ease-in-out .5s;
+}
+.log-page-bg form .option-handler{
+	display: flex;
+}
+.log-page-bg form .option-handler .register-anchor{
+	text-decoration: none;
+	color: var(--theme);
+	font-size: .8em;
+}
+.log-page-bg form .option-handler .forgot-anchor{
+	margin-left: auto;
+	margin-right: 0;
+	text-decoration: none;
+	color: var(--theme);
+	font-size: .8em;
+}
+.log-page-bg form span{
+	display: block;
+	margin: 30px 0 0 0;
+	font-size: .9em;
+	text-align: center;
+	color: rgba(0,0,0,0.5);
+}
+.log-page-bg form span a{
+	color: var(--theme);
+	text-decoration: none;
+}
+
+/*=================
+  	  Register
+=================*/
+.grid-photo{ grid-area: photo; }
+.grid-email{ grid-area: email; }
+.grid-password{ grid-area: password; }
+.grid-confirm-password{ grid-area: confirm-password; }
+.grid-firstname{ grid-area: firstname; }
+.grid-middlename{ grid-area: middlename; }
+.grid-lastname{ grid-area: lastname; }
+.grid-role{ grid-area: role; }
+.grid-branch{ grid-area: branch; }
+.grid-register{ grid-area: register; }
+.reg-grid{
+	display: grid;
+	grid-template-areas: 
+	'photo firstname'
+	'photo middlename'
+	'photo lastname'
+	'email role'
+	'password branch'
+	'confirm-password register';
+	column-gap: 18px;
+}
+.grid-item{
+	width: 300px;
+}
+#photo{
+	height: 100%;
+	opacity: 0;
+	cursor: pointer;
+}
+.reg-grid .grid-photo label{
+	position: relative;
+}
+#preview-photo{
+	position: absolute;
+	border: 1px solid rgba(0,0,0,0.2);
+	border-radius: 7px;
+	height: 166px;
+	width: 300px;
+	overflow: hidden;
+	display: grid;
+	place-items: center;
+	cursor: pointer;
+	color: rgba(0,0,0,0.5);
+	background-size: cover;
+	background-position: center;
+}
+.reg-page-bg {
+  	height: 100vh;
+  	background-image: linear-gradient(180deg, #2D6179, #2D6179), url(../img/banner.jpg);
+  	background-blend-mode: multiply;
+  	background-size: cover;
+  	display: grid;
+  	place-items: center;
+}
+.reg-page-bg form{
+	padding: 20px;
+	border-radius: 12px;
+	background-color: var(--white);
+}
+.reg-page-bg form .header-form{
+	display: flex;
+	align-items: center;
+}
+.reg-page-bg form .header-form img{
+	height: 90px;
+}
+.reg-page-bg form .header-form span i{
+	color: rgba(0,0,0,0.5);
+}
+.reg-page-bg form .reg-grid .grid-item label input,
+.reg-page-bg form .reg-grid .grid-item label select{
+	width: 100%;
+	padding: 12px;
+	border-radius: 7px;
+	outline: none;
+	border: 1px solid rgba(0,0,0,0.2);
+	margin: 0 0 18px 0;
+	transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+.reg-page-bg form .reg-grid .grid-item label input:focus,
+.reg-page-bg form .reg-grid .grid-item label select:focus {
+    color: var(--theme);
+    border-color: var(--theme);
+    outline: 0;
+    box-shadow: 0 0 0 .2rem rgba(45, 97, 121, .25);
+}
+.reg-page-bg form .reg-grid .grid-item button{
+	width: 100%;
+	padding: 12px;
+	border-radius: 7px;
+	cursor: pointer;
+	border: none;
+	font-size: 1em;
+	color: var(--white);
+	background-color: var(--theme);
+	box-shadow: inset 0 0 0 0 var(--semi);
+	outline: none;
+	transition: .5s;
+}
+.reg-page-bg form .reg-grid .grid-item button:hover{
+	box-shadow: inset 0 0 0 100px var(--semi);
+	transition: ease-in-out .5s;
+}
+.reg-page-bg form .option-handler{
+	display: flex;
+	align-items: center;
+}
+.reg-page-bg form .option-handler .login-anchor{
+	text-decoration: none;
+	color: var(--theme);
+	font-size: .8em;
+}
+.reg-page-bg form .option-handler span{
+	margin-left: auto;
+	margin-right: 0;
+	font-size: .9em;
+	color: rgba(0,0,0,0.5);
+}
+.reg-page-bg form .option-handler span a{
+	text-decoration: none;
+	color: var(--theme);
+}
